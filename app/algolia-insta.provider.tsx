@@ -29,6 +29,7 @@ const AlgoliaInstantProvider: React.FC<Props> = ({ children }) => {
       future={{
         preserveSharedStateOnUnmount: true,
       }}
+      insights={false}
       routing={false}
     >
       {children}

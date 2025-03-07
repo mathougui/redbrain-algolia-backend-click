@@ -1,8 +1,6 @@
-import client from "@/app/config";
+import { ALGOLIA_INSIGHTS_CLIENT } from "@/app/config";
 import { NextRequest, NextResponse } from "next/server";
 import { ClickedObjectIDsAfterSearch } from "@algolia/client-insights";
-
-const insights_client = client.initInsights({ region: 'us' });
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,10 +12,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    console.log(body)
-
     const event: ClickedObjectIDsAfterSearch = JSON.parse(body);
-    const response = await insights_client.pushEvents({
+    const response = await ALGOLIA_INSIGHTS_CLIENT.pushEvents({
       events: [event],
     });
 

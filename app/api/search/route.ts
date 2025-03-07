@@ -1,4 +1,4 @@
-import client from "@/app/config";
+import { ALGOLIA_SEARCH_CLIENT } from "@/app/config";
 import { NextRequest, NextResponse } from "next/server";
 import { SearchQuery } from "algoliasearch/lite";
 
@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { requests }: { requests: SearchQuery[] } = JSON.parse(body);
-    const { results } = await client.search(requests)
+    const { results } = await ALGOLIA_SEARCH_CLIENT.search(requests)
 
     return NextResponse.json(
       { results },

@@ -1,10 +1,10 @@
-import { algoliasearch as init } from "algoliasearch";
+import { algoliasearch } from "algoliasearch";
 
-const client = init(
+export const ALGOLIA_SEARCH_CLIENT = algoliasearch(
   "latency",
   "6be0576ff61c053d5f9a3225e2a90f76"
 )
 
-export const ALGOLIA_INDEX_NAME = "instant_search";
+export const ALGOLIA_INSIGHTS_CLIENT = ALGOLIA_SEARCH_CLIENT.initInsights({ region: 'us' });
 
-export default client;
+export const ALGOLIA_INDEX_NAME = "instant_search";
