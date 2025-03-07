@@ -12,7 +12,7 @@ export function trackClick(element: EventTarget) {
   const userToken = getOrCreateUserTokenFromCookies();
 
   // Send the click event to your backend
-  fetch(`${window.location.href}/api/click`, {
+  fetch("http://localhost:3000/api/click", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
